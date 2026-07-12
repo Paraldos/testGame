@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ogy5uqgqqr7y"]
+
+[ext_resource type="Script" uid="uid://bwk4yoo0xep8t" path="res://character/character.gd" id="1_ugqs2"]
+[ext_resource type="Texture2D" uid="uid://sc4bitrby5t2" path="res://assets/images/characters/character.png" id="2_hx151"]
+[ext_resource type="Script" uid="uid://c5pcoebqtwpkb" path="res://character/character_state_machine.gd" id="3_hx151"]
+[ext_resource type="Script" uid="uid://de8lx1i453qxw" path="res://character/character_state.gd" id="4_0rvpn"]
+
+[node name="Character" type="CharacterBody2D" unique_id=1639954916]
+script = ExtResource("1_ugqs2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427256028]
+scale = Vector2(3, 3)
+texture = ExtResource("2_hx151")
+centered = false
+hframes = 8
+vframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=961508635]
+
+[node name="PathLine" type="Line2D" parent="." unique_id=185886252]
+unique_name_in_owner = true
+show_behind_parent = true
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="StateMachine" type="Node" parent="." unique_id=1168245841]
+script = ExtResource("3_hx151")
+
+[node name="State" type="Node" parent="StateMachine" unique_id=1799312848]
+script = ExtResource("4_0rvpn")

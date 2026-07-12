@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c15f8m8baicek"]
+
+[ext_resource type="PackedScene" uid="uid://irc3mcnc40sd" path="res://world/tile_map.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://bs6xldjnaxr8n" path="res://character/player/player.tscn" id="2_fj7yv"]
+
+[node name="world" type="Node2D" unique_id=1869646056]
+
+[node name="TileMap" parent="." unique_id=1088497487 instance=ExtResource("1_f3sb7")]
+
+[node name="Label" type="Label" parent="." unique_id=1074734695]
+offset_left = 576.0
+offset_top = 96.0
+offset_right = 674.0
+offset_bottom = 119.0
+text = "This is a Test"
+
+[node name="Player" parent="." unique_id=1639954916 instance=ExtResource("2_fj7yv")]
