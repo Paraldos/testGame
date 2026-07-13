@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://irc3mcnc40sd"]
+[gd_scene format=3 uid="uid://irc3mcnc40sd"]
 
 [ext_resource type="Texture2D" uid="uid://bdagb8awligrd" path="res://assets/images/colored-transparent_packed.png" id="1_a7a0p"]
 [ext_resource type="Script" uid="uid://ceax3rc30jicd" path="res://world/tile_map.gd" id="2_0youp"]
@@ -1091,6 +1091,5 @@ sources/2 = SubResource("TileSetAtlasSource_fj7yv")
 
 [node name="TileMap" type="TileMapLayer" unique_id=1088497487]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAADAAIAAgAFAAMAAAAEAAIAAgAFAAMAAAAFAAIAAgAFAAMAAAAGAAIAAgAFAAMAAAAHAAIAAgAFAAMAAAAIAAIAAgAFAAMAAAAJAAIAAgAFAAMAAAADAAMAAgAFAAMAAAADAAQAAgAFAAMAAAADAAUAAgAFAAMAAAADAAYAAgAFAAMAAAADAAcAAgAFAAMAAAAEAAcAAgAFAAMAAAAFAAcAAgAFAAMAAAAGAAcAAgAFAAMAAAAHAAcAAgAFAAMAAAAIAAcAAgAFAAMAAAAJAAcAAgAFAAMAAAAKAAcAAgAFAAMAAAAKAAIAAgAFAAMAAAAKAAMAAgAFAAMAAAAKAAQAAgAFAAMAAAAKAAUAAgAFAAMAAAAKAAYAAgAFAAMAAAA=")
 tile_set = SubResource("TileSet_tlwt5")
 script = ExtResource("2_0youp")

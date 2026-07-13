@@ -1,8 +1,9 @@
 extends TileMapLayer
 
-var rect = Rect2i(0,0,3,3)
 var cell_size = Vector2(16,16)
-var world_origin = Vector2.ZERO
+var rect : Rect2i
 
 func _ready() -> void:
-	Grid.setup(rect, cell_size * scale, world_origin)
+	rect = get_used_rect()
+	cell_size = Vector2(tile_set.tile_size) * scale
+	Grid.setup(rect, cell_size, global_position)

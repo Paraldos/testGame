@@ -1,16 +1,15 @@
 extends Node
 
 var _grid := AStarGrid2D.new()
-var _world_origin := Vector2.ZERO
-var _cell_size := Vector2.ONE
 var _region := Rect2i()
-var _scale := Vector2.ONE
+var _cell_size := Vector2.ONE
+var _world_origin := Vector2.ZERO
 var _initialized := false
 
-func setup(region: Rect2i, cell_size: Vector2, world_origin := Vector2.ZERO) -> void:
+func setup(region: Rect2i, cell_size: Vector2, _world_origin: Vector2) -> void:
 	_region = region
-	_world_origin = world_origin
 	_cell_size = cell_size
+	_world_origin = _world_origin
 	_grid = AStarGrid2D.new()
 	_grid.region = region
 	_grid.cell_size = cell_size
@@ -20,14 +19,11 @@ func setup(region: Rect2i, cell_size: Vector2, world_origin := Vector2.ZERO) -> 
 
 func world_to_cell(position: Vector2) -> Vector2i:
 	var local_position := position - _world_origin
-	return _region.position + Vector2i(
-		floori(local_position.x / _cell_size.x),
-		floori(local_position.y / _cell_size.y)
-	)
+	var grid_position := Vector2i(local_position / _cell_size)
+	return grid_position
 
 func cell_to_world(cell: Vector2i) -> Vector2:
-	var local_cell := cell - _region.position
-	return (_world_origin + Vector2(local_cell) * _cell_size + _cell_size * 0.5)
+	return (Vector2(cell) * _cell_size + _cell_size * 0.5)
 
 func set_cell_blocked(cell: Vector2i, blocked := true) -> void:
 	if not _initialized:
@@ -57,6 +53,7 @@ func get_cell_path(start_cell: Vector2i, target_cell: Vector2i, allow_partial_pa
 		target_cell,
 		allow_partial_path
 	)
+
 func get_world_path(start_position: Vector2, target_position: Vector2, allow_partial_path := false) -> PackedVector2Array:
 	if not _initialized: return []
 	var start_cell := world_to_cell(start_position)
