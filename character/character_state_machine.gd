@@ -15,7 +15,8 @@ func _ready() -> void:
 
 func change_state(new_state: CharacterState) -> void:
 	if new_state == null or new_state == current_state: return
-	current_state.exit()
+	if current_state:
+		current_state.exit()
 	current_state = new_state
 	current_state.enter()
 

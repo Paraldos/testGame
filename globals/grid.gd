@@ -23,7 +23,7 @@ func world_to_cell(position: Vector2) -> Vector2i:
 	return grid_position
 
 func cell_to_world(cell: Vector2i) -> Vector2:
-	return (Vector2(cell) * _cell_size + _cell_size * 0.5)
+	return (Vector2(cell) * _cell_size)
 
 func set_cell_blocked(cell: Vector2i, blocked := true) -> void:
 	if not _initialized:
@@ -54,12 +54,12 @@ func get_cell_path(start_cell: Vector2i, target_cell: Vector2i, allow_partial_pa
 		allow_partial_path
 	)
 
-func get_world_path(start_position: Vector2, target_position: Vector2, allow_partial_path := false) -> PackedVector2Array:
+func get_world_path(start_position: Vector2, target_position: Vector2, allow_partial_path := false) -> Array[Vector2]:
 	if not _initialized: return []
 	var start_cell := world_to_cell(start_position)
 	var target_cell := world_to_cell(target_position)
 	var cell_path := get_cell_path(start_cell, target_cell, allow_partial_path)
-	var world_path := PackedVector2Array()
+	var world_path : Array[Vector2]
 	for cell in cell_path:
 		world_path.append(cell_to_world(cell))
 	return world_path

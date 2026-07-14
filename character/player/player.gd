@@ -1,6 +1,6 @@
 extends Character
 
-var path : PackedVector2Array
+var path : Array[Vector2]
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -10,4 +10,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.button_index != MOUSE_BUTTON_LEFT: return
 	if event.pressed:
 		path = Grid.get_world_path(global_position, get_global_mouse_position())
-	path_line.points = path
+		path.pop_front()
+		move_state.path = path
+		state_machine.change_state(move_state)
