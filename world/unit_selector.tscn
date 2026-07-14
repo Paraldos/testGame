@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bu5xdmyqnrbft"]
+
+[ext_resource type="Script" uid="uid://bfcu1e7awyygi" path="res://world/unit_selector.gd" id="1_3d7t4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kc5u"]
+size = Vector2(96, 96)
+
+[node name="UnitSelector" type="Area2D" unique_id=1390717231]
+script = ExtResource("1_3d7t4")
+
+[node name="SelectionShape" type="CollisionShape2D" parent="." unique_id=349902214]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_0kc5u")
+
+[node name="SelectionVisual" type="Line2D" parent="." unique_id=1546362186]
+unique_name_in_owner = true

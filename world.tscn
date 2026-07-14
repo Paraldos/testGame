@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://irc3mcnc40sd" path="res://world/tile_map.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://ce8ka4d7ca7kg" path="res://world.gd" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://ogy5uqgqqr7y" path="res://character/character.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bu5xdmyqnrbft" path="res://world/unit_selector.tscn" id="4_aqk2v"]
 
 [node name="world" type="Node2D" unique_id=1869646056]
 script = ExtResource("1_tlwt5")
@@ -32,3 +33,5 @@ metadata/_edit_lock_ = true
 
 [node name="Character" parent="." unique_id=1639954916 instance=ExtResource("3_tlwt5")]
 position = Vector2(144, 192)
+
+[node name="UnitSelector" parent="." unique_id=1073337988 instance=ExtResource("4_aqk2v")]
