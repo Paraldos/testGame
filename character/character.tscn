@@ -15,20 +15,21 @@ texture = ExtResource("2_hx151")
 centered = false
 hframes = 8
 vframes = 10
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=961508635]
 
-[node name="StateMachine" type="Node" parent="." unique_id=1168245841 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1168245841]
 unique_name_in_owner = true
 script = ExtResource("3_hx151")
-initial_state = NodePath("")
 
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=1107682470]
 unique_name_in_owner = true
 script = ExtResource("4_hx151")
 metadata/_custom_type_script = "uid://de8lx1i453qxw"
 
-[node name="MoveState" type="Node" parent="StateMachine" unique_id=1407374846]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1407374846 node_paths=PackedStringArray("idle_state")]
 unique_name_in_owner = true
 script = ExtResource("5_0rvpn")
+idle_state = NodePath("../IdleState")
 metadata/_custom_type_script = "uid://de8lx1i453qxw"
