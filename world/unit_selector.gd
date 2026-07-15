@@ -7,7 +7,6 @@ var _end_point : Vector2
 var is_selecting = false
 
 func _ready() -> void:
-	monitoring = false
 	selection_visual.visible = false
 
 func _process(_delta: float) -> void:
@@ -20,8 +19,8 @@ func _draw_selector():
 	var rectangle_shape := selection_shape.shape as RectangleShape2D
 	var half_size := size / 2.0
 	selection_shape.global_position = center
-	rectangle_shape.size = size
 	selection_visual.position = center
+	rectangle_shape.size = size
 	selection_visual.points = PackedVector2Array([
 		Vector2(-half_size.x, -half_size.y),
 		Vector2( half_size.x, -half_size.y),
@@ -42,5 +41,13 @@ func _left_click(event: InputEvent):
 		is_selecting = true
 		selection_visual.visible = true
 	if event.is_released():
+		_select_units()
 		is_selecting = false
 		selection_visual.visible = false
+
+func _select_units():
+	var overlapping_areas = get_overlapping_areas()
+	for area in overlapping_areas:
+		var char = area.get_parent()
+		if char.has_method('select'):
+			char.select()

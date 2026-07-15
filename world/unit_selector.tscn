@@ -6,6 +6,7 @@
 size = Vector2(96, 96)
 
 [node name="UnitSelector" type="Area2D" unique_id=1390717231]
+collision_layer = 0
 script = ExtResource("1_3d7t4")
 
 [node name="SelectionShape" type="CollisionShape2D" parent="." unique_id=349902214]

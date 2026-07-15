@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://clokf2lqsurm8" path="res://character/character_state_idle.gd" id="4_hx151"]
 [ext_resource type="Script" uid="uid://6s8hsg6ldxpf" path="res://character/character_state_move.gd" id="5_0rvpn"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kc5u"]
+size = Vector2(46, 46)
+
 [node name="Character" type="CharacterBody2D" unique_id=1639954916]
 script = ExtResource("1_ugqs2")
 
@@ -33,3 +36,10 @@ unique_name_in_owner = true
 script = ExtResource("5_0rvpn")
 idle_state = NodePath("../IdleState")
 metadata/_custom_type_script = "uid://de8lx1i453qxw"
+
+[node name="Selector" type="Area2D" parent="." unique_id=304720585]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=279521375]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_0kc5u")
