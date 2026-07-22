@@ -13,14 +13,28 @@ size = Vector2(46, 46)
 script = ExtResource("1_ugqs2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427256028]
+position = Vector2(23.999998, 23.999998)
 scale = Vector2(3, 3)
 texture = ExtResource("2_hx151")
-centered = false
 hframes = 8
 vframes = 10
 frame = 1
 
+[node name="SelectionFrame" type="Line2D" parent="." unique_id=473184509]
+unique_name_in_owner = true
+points = PackedVector2Array(48, 0, 48, 48, 0, 48, 0, 0)
+closed = true
+width = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=961508635]
+
+[node name="Selector" type="Area2D" parent="." unique_id=304720585]
+visible = false
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=279521375]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_0kc5u")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1168245841]
 unique_name_in_owner = true
@@ -36,10 +50,3 @@ unique_name_in_owner = true
 script = ExtResource("5_0rvpn")
 idle_state = NodePath("../IdleState")
 metadata/_custom_type_script = "uid://de8lx1i453qxw"
-
-[node name="Selector" type="Area2D" parent="." unique_id=304720585]
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Selector" unique_id=279521375]
-position = Vector2(24, 24)
-shape = SubResource("RectangleShape2D_0kc5u")

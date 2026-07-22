@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cqdtdii5rfsqc"]
+
+[node name="PineTree" type="Node2D" unique_id=1442432320]
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1176148880]
+position = Vector2(0, -88)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -96, -64, 64, -16, 64, -24, 96, 24, 96, 16, 64, 64, 64)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=736366536]
+position = Vector2(0, -88)
+points = PackedVector2Array(-48, 56, 0, -72, 48, 56)
+closed = true
+width = 5.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1333418054]
+position = Vector2(0, -88)
+points = PackedVector2Array(-8, 88, 8, 88, 0, 40)
+closed = true
+width = 5.0
+joint_mode = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=684953484]
+polygon = PackedVector2Array(0, -40, -8, 0, 8, 0)

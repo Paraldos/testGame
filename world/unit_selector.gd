@@ -31,6 +31,16 @@ func _draw_selector():
 
 func _unhandled_input(event: InputEvent) -> void:
 	_left_click(event)
+	_right_click(event)
+
+func _right_click(event: InputEvent):
+	if event is not InputEventMouseButton: return
+	if event.button_index != MOUSE_BUTTON_RIGHT: return
+	if event.pressed:
+		if is_selecting:
+			_stop_selecting()
+		else:
+			GlobalSignals.move_command.emit(get_global_mouse_position())
 
 func _left_click(event: InputEvent):
 	if event is not InputEventMouseButton: return
@@ -40,10 +50,10 @@ func _left_click(event: InputEvent):
 		_end_point = _start_point
 		is_selecting = true
 		selection_visual.visible = true
-	if event.is_released():
+	if event.is_released() && is_selecting:
+		GlobalSignals.deselect_all.emit()
 		_select_units()
-		is_selecting = false
-		selection_visual.visible = false
+		_stop_selecting()
 
 func _select_units():
 	var overlapping_areas = get_overlapping_areas()
@@ -51,3 +61,7 @@ func _select_units():
 		var char = area.get_parent()
 		if char.has_method('select'):
 			char.select()
+
+func _stop_selecting():
+	is_selecting = false
+	selection_visual.visible = false

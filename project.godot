@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Grid="*uid://c0q0jf4i6y2vt"
 Utils="*uid://cgw23otr8hwt"
+GlobalSignals="*uid://bjamrm0to16j1"
 
 [layer_names]
 
