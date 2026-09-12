@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://7gv7ya0jhhct"]
+
+[ext_resource type="Texture2D" uid="uid://bk18iy6rf1nni" path="res://assets/player.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bo25d187j4e0e" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kc5u"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kc5u"]
+radius = 8.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1171344712]
+script = ExtResource("1_onrkg")
+
+[node name="MainSprite" type="Sprite2D" parent="." unique_id=1757925415]
+unique_name_in_owner = true
+texture = SubResource("AtlasTexture_0kc5u")
+
+[node name="OrientationIndicator" type="Node2D" parent="." unique_id=1288868591]
+unique_name_in_owner = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="OrientationIndicator" unique_id=961689087]
+position = Vector2(6, 0)
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_onrkg")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1757528407]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129128744]
+shape = SubResource("CircleShape2D_0kc5u")
