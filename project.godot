@@ -15,12 +15,6 @@ run/main_scene="uid://c15f8m8baicek"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Grid="*uid://c0q0jf4i6y2vt"
-Utils="*uid://cgw23otr8hwt"
-GlobalSignals="*uid://bjamrm0to16j1"
-
 [layer_names]
 
 2d_physics/layer_1="Selector"
