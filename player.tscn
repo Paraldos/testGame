@@ -1,36 +1,105 @@
 [gd_scene format=3 uid="uid://7gv7ya0jhhct"]
 
-[ext_resource type="Texture2D" uid="uid://bk18iy6rf1nni" path="res://assets/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bo25d187j4e0e" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://cig4hcnfxe2jv" path="res://assets/player-Sheet.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://df8ek4g0amwd3" path="res://assets/orientation_indicator.png" id="3_i3pqv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kc5u"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_i3pqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 1]
+}
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0kc5u"]
-radius = 8.0
+[sub_resource type="Animation" id="Animation_sweqy"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hs0m"]
+_data = {
+&"RESET": SubResource("Animation_i3pqv"),
+&"idle": SubResource("Animation_hqtel"),
+&"run": SubResource("Animation_sweqy")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj7yv"]
+radius = 3.1622777
 
 [node name="Player" type="CharacterBody2D" unique_id=1171344712]
+y_sort_enabled = true
 script = ExtResource("1_onrkg")
 
 [node name="MainSprite" type="Sprite2D" parent="." unique_id=1757925415]
 unique_name_in_owner = true
-texture = SubResource("AtlasTexture_0kc5u")
+position = Vector2(0, -9)
+texture = ExtResource("2_i3pqv")
+hframes = 6
+
+[node name="MainSpriteAnimationPlayer" type="AnimationPlayer" parent="MainSprite" unique_id=1143655306]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_2hs0m")
 
 [node name="OrientationIndicator" type="Node2D" parent="." unique_id=1288868591]
 unique_name_in_owner = true
+position = Vector2(0, -9)
 
 [node name="Sprite2D2" type="Sprite2D" parent="OrientationIndicator" unique_id=961689087]
-position = Vector2(6, 0)
+position = Vector2(5, 0)
 rotation = 1.5707964
-texture = SubResource("AtlasTexture_onrkg")
+texture = ExtResource("3_i3pqv")
+
+[node name="AttackMarker" type="Marker2D" parent="OrientationIndicator" unique_id=475437200]
+unique_name_in_owner = true
+position = Vector2(12, 0)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1757528407]
 unique_name_in_owner = true
+zoom = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=129128744]
-shape = SubResource("CircleShape2D_0kc5u")
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CircleShape2D_fj7yv")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=174579806]
+unique_name_in_owner = true
+one_shot = true

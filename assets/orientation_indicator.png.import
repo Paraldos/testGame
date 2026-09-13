@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk18iy6rf1nni"
-path="res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"
+uid="uid://df8ek4g0amwd3"
+path="res://.godot/imported/orientation_indicator.png-43d2065d29e0a82c95f329d79e67104a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player.png"
-dest_files=["res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"]
+source_file="res://assets/orientation_indicator.png"
+dest_files=["res://.godot/imported/orientation_indicator.png-43d2065d29e0a82c95f329d79e67104a.ctex"]
 
 [params]
 
