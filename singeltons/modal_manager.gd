@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-# Simple Modal controller
-
 const ANIMATION_DURATION = 0.4
 
 @export_group("background")
@@ -19,7 +17,6 @@ func _ready() -> void:
 	_add_background()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-# Optional: listen for input to close modal
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		close_current_modal()

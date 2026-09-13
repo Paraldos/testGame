@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://db5wfv7kqi1dn"]
+
+[ext_resource type="Script" uid="uid://br3tb8oor337q" path="res://singeltons/signals_manager.gd" id="1_mtj1f"]
+
+[node name="SignalsManager" type="Node" unique_id=1187888683]
+script = ExtResource("1_mtj1f")
