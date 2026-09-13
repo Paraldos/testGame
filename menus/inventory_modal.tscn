@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://7pa461qpuf5r"]
 
-[ext_resource type="Script" uid="uid://buikru4dxyivh" path="res://components/modal.gd" id="1_miqg2"]
-[ext_resource type="Theme" uid="uid://bp6ekvkhaoxw" path="res://menus/main_theme.tres" id="2_hjylv"]
+[ext_resource type="Script" uid="uid://b3rfhkb6srt6d" path="res://menus/inventory_modal.gd" id="1_np4bb"]
+[ext_resource type="Theme" uid="uid://bp6ekvkhaoxw" path="res://assets/themes/main_theme.tres" id="2_hjylv"]
+[ext_resource type="PackedScene" uid="uid://bf5emusiwcmed" path="res://menus/inventory/item_box.tscn" id="3_np4bb"]
 
 [node name="CharacterModal" type="CanvasLayer" unique_id=2051101978]
 process_mode = 2
-script = ExtResource("1_miqg2")
+script = ExtResource("1_np4bb")
 
 [node name="ContentContainer" type="Control" parent="." unique_id=1600857100]
 unique_name_in_owner = true
@@ -13,8 +14,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -43,3 +42,63 @@ text = "Inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="ContentContainer/PanelContainer/VBoxContainer" unique_id=1531033091]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 7
+
+[node name="Label" type="Label" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=533869767]
+layout_mode = 2
+text = "Weapon"
+
+[node name="MainWeaponBox" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=271265423 instance=ExtResource("3_np4bb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=257640690]
+visible = false
+layout_mode = 2
+
+[node name="ItemBox2" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1968721635 instance=ExtResource("3_np4bb")]
+visible = false
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1572585916]
+visible = false
+layout_mode = 2
+
+[node name="Slot1Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=1610411045 instance=ExtResource("3_np4bb")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Slot2Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=202016617 instance=ExtResource("3_np4bb")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Slot3Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer" unique_id=699815936 instance=ExtResource("3_np4bb")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="ContentContainer/PanelContainer/VBoxContainer" unique_id=1122894819]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 7
+
+[node name="MainWeaponBox" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer2" unique_id=1252973041 instance=ExtResource("3_np4bb")]
+layout_mode = 2
+
+[node name="ItemBox2" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer2" unique_id=1204096509 instance=ExtResource("3_np4bb")]
+layout_mode = 2
+
+[node name="Slot1Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer2" unique_id=924918265 instance=ExtResource("3_np4bb")]
+layout_mode = 2
+
+[node name="Slot2Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer2" unique_id=91676767 instance=ExtResource("3_np4bb")]
+layout_mode = 2
+
+[node name="Slot3Box" parent="ContentContainer/PanelContainer/VBoxContainer/GridContainer2" unique_id=1974052816 instance=ExtResource("3_np4bb")]
+layout_mode = 2

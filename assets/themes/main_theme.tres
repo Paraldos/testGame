@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://bp6ekvkhaoxw"]
+
+[ext_resource type="Texture2D" uid="uid://cx8op71l0q8w1" path="res://assets/img/panel.png" id="1_lxams"]
+[ext_resource type="FontFile" uid="uid://qsmv6cd0oxvh" path="res://assets/themes/PixelSimpel.otf" id="2_vhku8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dirf7"]
+texture = ExtResource("1_lxams")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource("2_vhku8")
+default_font_size = 8
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_dirf7")

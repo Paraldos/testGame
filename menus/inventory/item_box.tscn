@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bf5emusiwcmed"]
+
+[ext_resource type="Theme" uid="uid://bp6ekvkhaoxw" path="res://assets/themes/main_theme.tres" id="1_nspm1"]
+[ext_resource type="Script" uid="uid://cohlykfhcq38n" path="res://menus/inventory/item_box.gd" id="2_i6y1t"]
+
+[node name="ItemBox" type="PanelContainer" unique_id=271265423]
+custom_minimum_size = Vector2(16, 16)
+theme = ExtResource("1_nspm1")
+script = ExtResource("2_i6y1t")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=104945255]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5

@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dk5glc63va7qo" path="res://components/items/weapon.gd" id="1_08ad4"]
 [ext_resource type="PackedScene" uid="uid://byx5cs6tgcrb6" path="res://projectiles/projectile.tscn" id="1_8vbjb"]
+[ext_resource type="Texture2D" uid="uid://bvcnn71psu0f7" path="res://assets/img/items-Sheet.png" id="1_nnmfu"]
 [ext_resource type="Script" uid="uid://dp6rwftxitqdd" path="res://components/sfx.gd" id="3_nnmfu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6y1t"]
+atlas = ExtResource("1_nnmfu")
 
 [sub_resource type="Resource" id="Resource_p4t46"]
 script = ExtResource("3_nnmfu")
@@ -12,4 +16,5 @@ metadata/_custom_type_script = "uid://dp6rwftxitqdd"
 script = ExtResource("1_08ad4")
 projectile = ExtResource("1_8vbjb")
 sound_effect = SubResource("Resource_p4t46")
+icon = SubResource("AtlasTexture_i6y1t")
 metadata/_custom_type_script = "uid://dk5glc63va7qo"
