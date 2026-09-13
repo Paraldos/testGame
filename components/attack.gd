@@ -1,8 +1,7 @@
 extends Node
-class_name Attack
+class_name AttackController
 
-@export var projectile: ProjectileDefinition
-@export var sfx: SoundEffect
+@export var attack: Attack
 
 var cooldown_timer = Timer.new()
 
@@ -13,9 +12,8 @@ func _ready() -> void:
 func use(pos: Vector2, direction: Vector2) -> void:
 	if !cooldown_timer.is_stopped():
 		return
-	if projectile == null:
-		push_error("Attack has no projectile.")
+	if attack == null:
+		push_error("no attack")
 		return
-	cooldown_timer.start(projectile.cooldown)
-	sfx.play()
-	projectile.spawn_projectile(pos, direction, get_tree().current_scene)
+	cooldown_timer.start(attack.cooldown)
+	attack.use(pos, direction, get_tree().current_scene)

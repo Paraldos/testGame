@@ -1,7 +1,8 @@
 extends Resource
-class_name ProjectileDefinition
+class_name Attack
 
 @export var projectile : PackedScene
+@export var sound_effect: SoundEffect
 
 @export_category("Properties")
 @export var speed := 400.0
@@ -17,10 +18,11 @@ var spread := 0.0
 @export var hits_player := false
 @export var hits_enemy := true
 
-func spawn_projectile(pos: Vector2, direction: Vector2, container : Node) -> void:
+func use(pos: Vector2, direction: Vector2, container : Node) -> void:
 	if projectile == null:
 		push_error("ProjectileValues has no PackedScene.")
 		return
+	sound_effect.play_at_pos(pos)
 	for i in amount:
 		var p := projectile.instantiate() as Projectile
 		var spread_angle := deg_to_rad(randf_range(-spread, spread))

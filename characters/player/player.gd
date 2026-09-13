@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var orientation_indicator: Node2D = %OrientationIndicator
 @onready var attack_marker: Marker2D = %AttackMarker
 @onready var main_sprite_animation_player: AnimationPlayer = %MainSpriteAnimationPlayer
-@onready var attack: Attack = %Attack
+@onready var attack_controller: AttackController = $AttackController
 
 const PROJECTILE = preload("uid://byx5cs6tgcrb6")
 
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	_orientation()
 	_move(delta)
 	if Input.is_action_pressed("attack"):
-		attack.use(attack_marker.global_position, attack_marker.global_position.direction_to(
+		attack_controller.use(attack_marker.global_position, attack_marker.global_position.direction_to(
 				get_global_mouse_position()
 			))
 

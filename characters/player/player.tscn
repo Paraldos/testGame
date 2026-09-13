@@ -68,14 +68,15 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_fj7yv"]
 radius = 3.1622777
 
-[sub_resource type="Resource" id="Resource_dirf7"]
+[sub_resource type="Resource" id="Resource_50yph"]
+script = ExtResource("5_ixbpm")
+metadata/_custom_type_script = "uid://dp6rwftxitqdd"
+
+[sub_resource type="Resource" id="Resource_0kc5u"]
 script = ExtResource("6_idpv6")
 projectile = ExtResource("5_dirf7")
-spread = 0.5
+sound_effect = SubResource("Resource_50yph")
 metadata/_custom_type_script = "uid://dk5glc63va7qo"
-
-[sub_resource type="Resource" id="Resource_5tu0c"]
-script = ExtResource("5_ixbpm")
 
 [node name="Player" type="CharacterBody2D" unique_id=1171344712]
 y_sort_enabled = true
@@ -115,9 +116,7 @@ position = Vector2(0, -3)
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_fj7yv")
 
-[node name="Attack" type="Node" parent="." unique_id=566390848]
-unique_name_in_owner = true
+[node name="AttackController" type="Node" parent="." unique_id=784205352]
 script = ExtResource("4_5dc8e")
-projectile = SubResource("Resource_dirf7")
-sfx = SubResource("Resource_5tu0c")
+attack = SubResource("Resource_0kc5u")
 metadata/_custom_type_script = "uid://db2a2lm6iu5qf"
