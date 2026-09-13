@@ -4,9 +4,10 @@ const SFX_BUS := &"SFX"
 
 enum Sound {
 	HURT,
+	DOOR,
 }
 
-const SOUNDS := { Sound.HURT: preload("uid://bq3lig2qe6y0c") }
+const SOUNDS := { Sound.HURT: preload("uid://bmnb55wjwil1q"), Sound.DOOR: preload("uid://qmc0prm7jgog") }
 
 func play_sfx(sound: Sound, pitch_variation := 0.0) -> void:
 	var stream: AudioStream = SOUNDS.get(sound)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dorgynkkdygif" path="res://assets/img/door-Sheet.png" id="1_ba8gm"]
 [ext_resource type="Script" uid="uid://chp62oagdxb3j" path="res://levels/deco/door.gd" id="1_v6xrn"]
+[ext_resource type="Script" uid="uid://i7ov44knr3re" path="res://components/sfx.gd" id="3_5tu0c"]
 
 [sub_resource type="Animation" id="Animation_ba8gm"]
 length = 0.001
@@ -91,6 +92,14 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1290646833]
 shape = SubResource("CircleShape2D_0kc5u")
+
+[node name="SFX" type="Node2D" parent="." unique_id=1752638694]
+unique_name_in_owner = true
+script = ExtResource("3_5tu0c")
+sfx = 1
+pitch_variation = 0.2
+local = true
+metadata/_custom_type_script = "uid://i7ov44knr3re"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
