@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://1hgi44bu1xeo"]
+
+[ext_resource type="Texture2D" uid="uid://dorgynkkdygif" path="res://assets/door-Sheet.png" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://chp62oagdxb3j" path="res://door.gd" id="1_v6xrn"]
+
+[sub_resource type="Animation" id="Animation_ba8gm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v6xrn"]
+resource_name = "open"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0phs7"]
+_data = {
+&"RESET": SubResource("Animation_ba8gm"),
+&"open": SubResource("Animation_v6xrn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kc5u"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kc5u"]
+radius = 48.0
+
+[node name="Door" type="StaticBody2D" unique_id=290573754]
+collision_mask = 0
+script = ExtResource("1_v6xrn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1241569028]
+texture = ExtResource("1_ba8gm")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1314394469]
+libraries/ = SubResource("AnimationLibrary_0phs7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1578713121]
+shape = SubResource("RectangleShape2D_0kc5u")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1081750347]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1290646833]
+shape = SubResource("CircleShape2D_0kc5u")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

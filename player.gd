@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 const PROJECTILE = preload("uid://byx5cs6tgcrb6")
 
-@export var max_speed := 90.0
+@export var max_speed := 60.0
 @export var acceleration := 400.0
 
 func _physics_process(delta: float) -> void:
@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	_move(delta)
 	if Input.is_action_pressed("attack") && attack_timer.is_stopped():
 		shoot()
-		attack_timer.start(0.3)
+		attack_timer.start(0.5)
 
 func _orientation() -> void:
 	orientation_indicator.look_at(get_global_mouse_position())

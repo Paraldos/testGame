@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c81s4v0rkpbvx"
-path="res://.godot/imported/player_weapons-Sheet.png-7e483c12fbd4f10dcdd028d9c11c026f.ctex"
+uid="uid://dorgynkkdygif"
+path="res://.godot/imported/door-Sheet.png-b04073415385c4ee18505d982ce7b075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player_weapons-Sheet.png"
-dest_files=["res://.godot/imported/player_weapons-Sheet.png-7e483c12fbd4f10dcdd028d9c11c026f.ctex"]
+source_file="res://assets/door-Sheet.png"
+dest_files=["res://.godot/imported/door-Sheet.png-b04073415385c4ee18505d982ce7b075.ctex"]
 
 [params]
 

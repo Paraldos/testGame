@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dl6aikq0pqnel"]
+
+[ext_resource type="Texture2D" uid="uid://cig4hcnfxe2jv" path="res://assets/player-Sheet.png" id="1_gtj52"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kc5u"]
+radius = 8.0
+
+[node name="Dummy" type="Node2D" unique_id=1875851170]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=906659642]
+texture = ExtResource("1_gtj52")
+hframes = 6
+
+[node name="Area2D" type="Area2D" parent="." unique_id=548629428]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2092019089]
+shape = SubResource("CircleShape2D_0kc5u")
