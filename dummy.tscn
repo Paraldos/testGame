@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dl6aikq0pqnel"]
 
 [ext_resource type="Script" uid="uid://dhs8h4tuy5tvs" path="res://dummy.gd" id="1_0umox"]
-[ext_resource type="Texture2D" uid="uid://cig4hcnfxe2jv" path="res://assets/player-Sheet.png" id="1_gtj52"]
+[ext_resource type="Texture2D" uid="uid://cig4hcnfxe2jv" path="res://assets/img/player-Sheet.png" id="1_gtj52"]
 [ext_resource type="Script" uid="uid://q66so6poh5y3" path="res://hitboxes/hurtbox.gd" id="2_xmspm"]
-[ext_resource type="Script" uid="uid://cyphfx84ww5a0" path="res://characters/hit.gd" id="4_1324b"]
+[ext_resource type="Script" uid="uid://cyphfx84ww5a0" path="res://characters/templates/hit_fx.gd" id="4_1324b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymxrc"]
 radius = 8.0
@@ -24,9 +24,9 @@ metadata/_custom_type_script = "uid://q66so6poh5y3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=659411249]
 shape = SubResource("CircleShape2D_ymxrc")
 
-[node name="HitAnimation" type="Node" parent="." unique_id=1138318647 node_paths=PackedStringArray("actor")]
+[node name="HitFX" type="Node2D" parent="." unique_id=1733591256]
+unique_name_in_owner = true
 script = ExtResource("4_1324b")
-actor = NodePath("..")
 metadata/_custom_type_script = "uid://cyphfx84ww5a0"
 
 [connection signal="hit_received" from="Hurtbox" to="." method="_on_hurtbox_hit_received"]

@@ -1,6 +1,7 @@
 extends Node2D
-@onready var hit_animation: HitAnimation = $HitAnimation
+
+@onready var hit_fx: HitFX = %HitFX
 
 func _on_hurtbox_hit_received(hitbox: Hitbox) -> void:
 	print(hitbox.dmg)
-	hit_animation.play()
+	hit_fx.play()

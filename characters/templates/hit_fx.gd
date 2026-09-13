@@ -1,15 +1,19 @@
-extends Node
-class_name HitAnimation
+extends Node2D
+class_name HitFX
 
 @export var actor: Node2D
 
 @export_group("Shake")
 @export var shake_distance := 1.2
-@export var shake_duration := 0.04
+@export var shake_duration := 0.05
 
 @export_group("Blink")
 @export var blink_color := Color("black")
 @export var blink_duration := 0.08
+
+@export_group("SFX")
+@export var hit_sound = AudioManager.Sound.HURT
+@export var pitch_variation = 0.1
 
 var shake_tween: Tween
 var blink_tween: Tween
@@ -18,13 +22,13 @@ var original_position: Vector2
 var original_modulate: Color
 
 func _ready() -> void:
-	if actor:
-		original_position = actor.position
-		original_modulate = actor.modulate
+	if !actor:
+		actor = get_parent()
+	original_position = actor.position
+	original_modulate = actor.modulate
 
 func play() -> void:
-	if not actor:
-		return
+	AudioManager.play_sfx_2d(hit_sound, global_position, pitch_variation)
 	_shake()
 	_blink()
 
