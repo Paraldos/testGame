@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dl6aikq0pqnel"]
 
-[ext_resource type="Script" uid="uid://dhs8h4tuy5tvs" path="res://dummy.gd" id="1_0umox"]
+[ext_resource type="Script" uid="uid://dhs8h4tuy5tvs" path="res://characters/dummy/dummy.gd" id="1_0umox"]
 [ext_resource type="Texture2D" uid="uid://cig4hcnfxe2jv" path="res://assets/img/player-Sheet.png" id="1_gtj52"]
 [ext_resource type="Script" uid="uid://q66so6poh5y3" path="res://hitboxes/hurtbox.gd" id="2_xmspm"]
 [ext_resource type="Script" uid="uid://cyphfx84ww5a0" path="res://characters/templates/hit_fx.gd" id="4_1324b"]

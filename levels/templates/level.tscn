@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://c15f8m8baicek"]
 
-[ext_resource type="PackedScene" uid="uid://bkcojo2b15p71" path="res://tile_map.tscn" id="1_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://7gv7ya0jhhct" path="res://player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://1hgi44bu1xeo" path="res://door.tscn" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://dl6aikq0pqnel" path="res://dummy.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://bkcojo2b15p71" path="res://levels/templates/tile_map.tscn" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://7gv7ya0jhhct" path="res://characters/player/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://1hgi44bu1xeo" path="res://levels/deco/door.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dl6aikq0pqnel" path="res://characters/dummy/dummy.tscn" id="4_aqk2v"]
 
 [node name="World" type="Node2D" unique_id=741570207]
 y_sort_enabled = true

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1hgi44bu1xeo"]
 
 [ext_resource type="Texture2D" uid="uid://dorgynkkdygif" path="res://assets/img/door-Sheet.png" id="1_ba8gm"]
-[ext_resource type="Script" uid="uid://chp62oagdxb3j" path="res://door.gd" id="1_v6xrn"]
+[ext_resource type="Script" uid="uid://chp62oagdxb3j" path="res://levels/deco/door.gd" id="1_v6xrn"]
 
 [sub_resource type="Animation" id="Animation_ba8gm"]
 length = 0.001
@@ -32,7 +32,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_v6xrn"]
 resource_name = "open"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
