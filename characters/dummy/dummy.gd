@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var hit_fx: HitFX = %HitFX
+@onready var hit_effect: HitEffect = %HitEffect
 
 func _on_hurtbox_hit_received(hitbox: Hitbox) -> void:
-	print(hitbox.dmg)
-	hit_fx.play()
+	hit_effect.play()

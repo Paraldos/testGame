@@ -1,5 +1,5 @@
 extends Node2D
-class_name HitFX
+class_name HitEffect
 
 @export var actor: Node2D
 

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://7pa461qpuf5r"]
+
+[ext_resource type="Script" uid="uid://buikru4dxyivh" path="res://components/modal.gd" id="1_miqg2"]
+
+[node name="CharacterModal" type="CanvasLayer" unique_id=2051101978]
+process_mode = 2
+script = ExtResource("1_miqg2")
+
+[node name="ContentContainer" type="Control" parent="." unique_id=1600857100]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
