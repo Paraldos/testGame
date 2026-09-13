@@ -18,5 +18,4 @@ func use(pos: Vector2, direction: Vector2) -> void:
 		return
 	cooldown_timer.start(projectile.cooldown)
 	sfx.play()
-	var p := projectile.spawn_projectile(pos, direction)
-	get_tree().current_scene.add_child(p)
+	projectile.spawn_projectile(pos, direction, get_tree().current_scene)

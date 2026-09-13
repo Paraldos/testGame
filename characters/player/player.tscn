@@ -70,12 +70,12 @@ radius = 3.1622777
 
 [sub_resource type="Resource" id="Resource_dirf7"]
 script = ExtResource("6_idpv6")
-node = ExtResource("5_dirf7")
+projectile = ExtResource("5_dirf7")
+spread = 0.5
 metadata/_custom_type_script = "uid://dk5glc63va7qo"
 
 [sub_resource type="Resource" id="Resource_5tu0c"]
 script = ExtResource("5_ixbpm")
-pitch_variation = 0.2
 
 [node name="Player" type="CharacterBody2D" unique_id=1171344712]
 y_sort_enabled = true
