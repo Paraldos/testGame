@@ -79,6 +79,7 @@ sound_effect = SubResource("Resource_50yph")
 metadata/_custom_type_script = "uid://dk5glc63va7qo"
 
 [node name="Player" type="CharacterBody2D" unique_id=1171344712]
+process_mode = 3
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 3

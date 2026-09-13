@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7pa461qpuf5r"]
 
 [ext_resource type="Script" uid="uid://buikru4dxyivh" path="res://components/modal.gd" id="1_miqg2"]
+[ext_resource type="Theme" uid="uid://bp6ekvkhaoxw" path="res://menus/main_theme.tres" id="2_hjylv"]
 
 [node name="CharacterModal" type="CanvasLayer" unique_id=2051101978]
 process_mode = 2
@@ -12,3 +13,32 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_hjylv")
+
+[node name="PanelContainer" type="PanelContainer" parent="ContentContainer" unique_id=1212004807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -194.0
+offset_right = 176.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentContainer/PanelContainer" unique_id=992867995]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ContentContainer/PanelContainer/VBoxContainer" unique_id=1219394299]
+layout_mode = 2
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

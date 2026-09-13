@@ -2,6 +2,11 @@
 extends CanvasLayer
 class_name Modal
 
+# Simple Modal template, sliding in from Screen Edge.
+# HINT: Works best if used with ModalManager
+# No background overlay Included / Background is Managed in ModalManager
+# ANIMATION_DURATION from ModalManager. Replace with local variable if ModalManager is not used.
+
 enum Directions {
 	TOP,
 	BOTTOM,
@@ -9,16 +14,12 @@ enum Directions {
 	RIGHT,
 }
 
-const ANIMATION_DURATION = 0.5
-
-@export var opening_from := Directions.TOP
-@export var closing_to := Directions.BOTTOM
+@export var opening_from := Directions.LEFT
+@export var closing_to := Directions.RIGHT
 var screen_width: Vector2
 var opening_from_pos: Vector2
 var closing_to_pos: Vector2
-
 var content_container: Control
-var pos_active := Vector2.ZERO
 var is_closing := false
 
 func _ready() -> void:
@@ -31,14 +32,16 @@ func _ready() -> void:
 
 # ====================================== helper
 func _add_content_container():
-	content_container = Control.new()
-	content_container.name = "ContentContainer"
-	content_container.unique_name_in_owner = true
-
-	add_child(content_container)
-	content_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	if Engine.is_editor_hint():
-		content_container.owner = get_tree().edited_scene_root
+	content_container = get_node_or_null("ContentContainer") as Control
+	if content_container == null:
+		content_container = Control.new()
+		content_container.name = "ContentContainer"
+		content_container.unique_name_in_owner = true
+		add_child(content_container)
+		content_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		if Engine.is_editor_hint():
+			content_container.owner = get_tree().edited_scene_root
+	content_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _get_position_for_direction(direction: Directions) -> Vector2:
 	match direction:
@@ -56,18 +59,22 @@ func _get_position_for_direction(direction: Directions) -> Vector2:
 func open():
 	content_container.position = opening_from_pos
 	await _move_content(Vector2.ZERO, Tween.EASE_OUT)
+	return
 
 func close() -> void:
 	if is_closing:
+		if is_inside_tree():
+			await tree_exited
 		return
 	is_closing = true
 	await _move_content(closing_to_pos, Tween.EASE_IN)
 	queue_free()
 	await tree_exited
+	return
 
 func _move_content(target_pos: Vector2, ease_type: Tween.EaseType):
 	var t := create_tween()
 	t.set_trans(Tween.TRANS_BACK)
 	t.set_ease(ease_type)
-	t.tween_property(content_container, 'position', target_pos, ANIMATION_DURATION)
+	t.tween_property(content_container, 'position', target_pos, ModalManager.ANIMATION_DURATION)
 	await t.finished

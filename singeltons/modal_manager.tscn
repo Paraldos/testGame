@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://u0uc7qr2p7f5"]
+
+[ext_resource type="Script" uid="uid://cb26wppunmixw" path="res://singeltons/modal_manager.gd" id="1_4s60g"]
+
+[node name="ModalManager" type="CanvasLayer" unique_id=426595495]
+layer = 50
+script = ExtResource("1_4s60g")
