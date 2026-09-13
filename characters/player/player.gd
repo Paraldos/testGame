@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var main_sprite: Sprite2D = %MainSprite
 @onready var orientation_indicator: Node2D = %OrientationIndicator
 @onready var attack_marker: Marker2D = %AttackMarker
-@onready var attack_timer: Timer = %AttackTimer
 @onready var main_sprite_animation_player: AnimationPlayer = %MainSpriteAnimationPlayer
+@onready var attack: Attack = %Attack
 
 const PROJECTILE = preload("uid://byx5cs6tgcrb6")
 
@@ -14,9 +14,10 @@ const PROJECTILE = preload("uid://byx5cs6tgcrb6")
 func _physics_process(delta: float) -> void:
 	_orientation()
 	_move(delta)
-	if Input.is_action_pressed("attack") && attack_timer.is_stopped():
-		shoot()
-		attack_timer.start(0.5)
+	if Input.is_action_pressed("attack"):
+		attack.use(attack_marker.global_position, attack_marker.global_position.direction_to(
+				get_global_mouse_position()
+			))
 
 func _orientation() -> void:
 	orientation_indicator.look_at(get_global_mouse_position())
@@ -35,10 +36,3 @@ func _move(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
 		main_sprite_animation_player.play("idle")
 	move_and_slide()
-
-func shoot() -> void:
-	var projectile := PROJECTILE.instantiate()
-	get_tree().current_scene.add_child(projectile)
-	projectile.global_position = attack_marker.global_position
-	projectile.direction = attack_marker.global_position.direction_to(get_global_mouse_position())
-	projectile.rotation = projectile.direction.angle()

@@ -11,10 +11,6 @@ class_name HitFX
 @export var blink_color := Color("black")
 @export var blink_duration := 0.08
 
-@export_group("SFX")
-@export var hit_sound = AudioManager.Sound.HURT
-@export var pitch_variation = 0.1
-
 var shake_tween: Tween
 var blink_tween: Tween
 
@@ -28,7 +24,6 @@ func _ready() -> void:
 	original_modulate = actor.modulate
 
 func play() -> void:
-	AudioManager.play_sfx_2d(hit_sound, global_position, pitch_variation)
 	_shake()
 	_blink()
 
@@ -39,8 +34,18 @@ func _shake() -> void:
 	shake_tween = create_tween()
 	shake_tween.set_trans(Tween.TRANS_SINE)
 	shake_tween.set_ease(Tween.EASE_IN_OUT)
-	shake_tween.tween_property(actor, "position", original_position + Vector2.RIGHT * shake_distance, shake_duration)
-	shake_tween.tween_property(actor, "position", original_position + Vector2.LEFT * shake_distance, shake_duration)
+	shake_tween.tween_property(
+		actor,
+		"position",
+		original_position + Vector2.RIGHT * shake_distance,
+		shake_duration,
+	)
+	shake_tween.tween_property(
+		actor,
+		"position",
+		original_position + Vector2.LEFT * shake_distance,
+		shake_duration,
+	)
 	shake_tween.tween_property(actor, "position", original_position, shake_duration)
 
 func _blink() -> void:
