@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://c3umjnbpi7bwk"]
+
+[ext_resource type="PackedScene" uid="uid://byx5cs6tgcrb6" path="res://projectiles/projectile.tscn" id="1_h0tts"]
+[ext_resource type="Script" uid="uid://dk5glc63va7qo" path="res://components/items/weapon.gd" id="1_xlcqn"]
+[ext_resource type="Script" uid="uid://dp6rwftxitqdd" path="res://components/sfx.gd" id="3_82826"]
+
+[sub_resource type="Resource" id="Resource_pb4dt"]
+script = ExtResource("3_82826")
+metadata/_custom_type_script = "uid://dp6rwftxitqdd"
+
+[resource]
+script = ExtResource("1_xlcqn")
+projectile = ExtResource("1_h0tts")
+sound_effect = SubResource("Resource_pb4dt")
+spread = 0.2
+cooldown = 0.2
+metadata/_custom_type_script = "uid://dk5glc63va7qo"

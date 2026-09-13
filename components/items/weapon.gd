@@ -1,6 +1,7 @@
-extends Resource
-class_name Attack
+extends Item
+class_name Weapon
 
+@export_category("Projectile")
 @export var projectile : PackedScene
 @export var sound_effect: SoundEffect
 

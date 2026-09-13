@@ -2,7 +2,7 @@ extends Node2D
 class_name Projectile
 
 @onready var hitbox: Hitbox = $Hitbox
-@export var attack := Attack.new()
+@export var attack := Weapon.new()
 
 var direction := Vector2.RIGHT
 var remaining_lifetime := 0.0

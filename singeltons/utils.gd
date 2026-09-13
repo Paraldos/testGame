@@ -1,4 +1,4 @@
 extends Node
 # Utils
 
-var game_data: GameData
+var game_data: GameData = GameData.new()
