@@ -1,12 +1,9 @@
-extends Area2D
+extends Node2D
 
 @export var speed := 200.0
 @export var lifetime := 3.0
 
 var direction := Vector2.RIGHT
-
-func _ready() -> void:
-	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
@@ -14,5 +11,5 @@ func _physics_process(delta: float) -> void:
 	if lifetime <= 0.0:
 		queue_free()
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_hitbox_impact() -> void:
 	queue_free()

@@ -1,17 +1,24 @@
 [gd_scene format=3 uid="uid://byx5cs6tgcrb6"]
 
 [ext_resource type="Script" uid="uid://dnxndkep2hof6" path="res://projectile.gd" id="1_a85iw"]
+[ext_resource type="Script" uid="uid://c23wlkyryp2dq" path="res://hitboxes/hitbox.gd" id="2_qxf0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a85iw"]
-size = Vector2(2, 1)
+size = Vector2(2, 2)
 
-[node name="Projectile" type="Area2D" unique_id=1495867540]
-collision_layer = 0
+[node name="Projectile" type="Node2D" unique_id=1926908501]
 script = ExtResource("1_a85iw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2017108195]
-position = Vector2(0, -0.5)
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1898710930]
+polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=794731438]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("2_qxf0c")
+metadata/_custom_type_script = "uid://c23wlkyryp2dq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2017108195]
 shape = SubResource("RectangleShape2D_a85iw")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1898710930]
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 0, -1, 0)
+[connection signal="impact" from="Hitbox" to="." method="_on_hitbox_impact"]
