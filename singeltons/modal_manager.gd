@@ -6,7 +6,7 @@ const ANIMATION_DURATION = 0.4
 @export var background_color := Color("Black")
 @export var background_opacity := 0.4
 
-var character_modal = preload("uid://7pa461qpuf5r")
+var inventory_modal = preload("uid://7pa461qpuf5r")
 
 var background: ColorRect
 var modal: Modal = null

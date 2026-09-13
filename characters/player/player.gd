@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 			attack_marker.global_position.direction_to(get_global_mouse_position()),
 		)
 	if Input.is_action_just_pressed("ui_inventory"):
-		ModalManager.open_modal(ModalManager.character_modal)
+		ModalManager.open_modal(ModalManager.inventory_modal)
 
 func _orientation() -> void:
 	orientation_indicator.look_at(get_global_mouse_position())

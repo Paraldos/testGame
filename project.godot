@@ -28,10 +28,13 @@ SignalsManager="*uid://br3tb8oor337q"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=800
+window/size/viewport_width=300
+window/size/viewport_height=200
+window/size/window_width_override=1200
+window/size/window_height_override=800
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
 
 [input]
 

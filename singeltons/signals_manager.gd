@@ -1,3 +1,3 @@
 extends Node
 
-signal example
+signal shake_camera(strength: float, duration: float)
