@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://byx5cs6tgcrb6"]
 
 [ext_resource type="Script" uid="uid://dnxndkep2hof6" path="res://projectiles/projectile.gd" id="1_a85iw"]
+[ext_resource type="Texture2D" uid="uid://bj5vowywce7vh" path="res://assets/img/projectile.png" id="2_7nr1q"]
 [ext_resource type="Script" uid="uid://c23wlkyryp2dq" path="res://components/hitbox.gd" id="2_qxf0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a85iw"]
-size = Vector2(2, 2)
+size = Vector2(4, 4)
 
 [node name="Projectile" type="Node2D" unique_id=1926908501]
 script = ExtResource("1_a85iw")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1898710930]
-polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1134665318]
+texture = ExtResource("2_7nr1q")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=794731438]
 collision_layer = 0

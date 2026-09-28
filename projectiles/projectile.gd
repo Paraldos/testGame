@@ -12,6 +12,9 @@ func _ready() -> void:
 		push_error("Projectile has no ProjectileValues.")
 		queue_free()
 		return
+
+	global_rotation = direction.angle()
+
 	remaining_lifetime = attack.lifetime
 	hitbox.dmg = attack.dmg
 	hitbox.collision_mask = 0
